@@ -112,6 +112,7 @@
         const Clipboard = p => <IconBase {...p}><rect width="8" height="4" x="8" y="2" rx="1" /><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /></IconBase>;
         const ArrowRight = p => <IconBase {...p}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></IconBase>;
         const Zap = p => <IconBase {...p}><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></IconBase>;
+        const LogOut = p => <IconBase {...p}><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><polyline points="16 17 21 12 16 7" /><line x1="21" y1="12" x2="9" y2="12" /></IconBase>;
         const RefreshCw = p => <IconBase {...p}><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" /><path d="M21 3v5h-5" /><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" /><path d="M8 16H3v5" /></IconBase>;
         const Plus = p => <IconBase {...p}><line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" /></IconBase>;
         const Trash2 = p => <IconBase {...p}><path d="M3 6h18" /><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6" /><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2" /><line x1="10" y1="11" x2="10" y2="17" /><line x1="14" y1="11" x2="14" y2="17" /></IconBase>;
@@ -125,15 +126,295 @@
         const Rocket = p => <IconBase {...p}><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z" /><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" /><path d="M9 12H4s.55-3.03 2-4c1.62-1.1 4-1 4-1s-1.07 1.83-1 4z" /><path d="M12 15v5s3.03-.55 4-2c1.1-1.62 1-4 1-4s-1.83 1.07-4 1z" /></IconBase>;
         const FilePenLine = p => <IconBase {...p}><path d="m18 5-3-3H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2" /><path d="M8 18h1" /><path d="M18.4 2.6a2.17 2.17 0 0 1 3 3L16 11l-4 1 1-4Z" /></IconBase>;
         const WifiOff = p => <IconBase {...p}><line x1="2" y1="2" x2="22" y2="22" /><path d="M8.5 8.5A10 10 0 0 1 22 12" /><path d="M5 12a7 7 0 0 1 7-7 7 7 0 0 1 7 7" /><path d="M8.52 16.48A4 4 0 0 1 12 16c1.1 0 2.1.4 2.9 1.1" /><path d="M12 20h.01" /></IconBase>;
+        const Globe = p => <IconBase {...p}><circle cx="12" cy="12" r="10" /><line x1="2" x2="22" y1="12" y2="12" /><path d="a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></IconBase>;
 
+
+        const TRANSLATIONS = {
+            de: {
+                title: "SmartReply Assistent",
+                settings: "Einstellungen",
+                workspace: "Workspace",
+                incoming: "Eingehende Nachricht",
+                paste: "Einfügen",
+                copy: "Kopieren",
+                copied: "Kopiert",
+                reset: "Reset",
+                confirmReset: "Wirklich löschen?",
+                demo: "Demo Text laden",
+                aiResponse: "KI-Antwort",
+                fallback: "Fallback aktiv",
+                generating: "generiert...",
+                instrPlaceholder: 'Z.B. "Biete 5% Rabatt an" oder "Fasse dich kürzer"',
+                manage: "Verwaltung",
+                shops: "SHOPS",
+                newShop: "Neuer Shop",
+                editShop: "Shop bearbeiten",
+                save: "Speichern",
+                offlineBtn: "Offline-KI aktivieren",
+                apiConfig: "KI & API Konfiguration",
+                stdPolicy: "Standard-Richtlinien",
+                policyLabel: "Richtlinien & Tonalität",
+                name: "Name",
+                apiKey: "API Key",
+                appReset: "App komplett Reset",
+                confirmAppReset: "Wirklich zurücksetzen?",
+                genPolicyDefault: `ALLGEMEINE STANDARD-RICHTLINIE:\n- Tonalität: Professionell, höflich.\n- Ziel: Präzise Antwort.\n- LÄNGE: Kurz (2-4 Absätze).`,
+                simGreeting: "Guten Tag",
+                simClosing: "Mit freundlichen Grüßen",
+                simBody: "vielen Dank für Ihre Nachricht. Wir haben Ihr Anliegen erfasst.",
+                inputPlaceholder: "Fügen Sie hier die E-Mail des Kunden ein...",
+                policyPlaceholder: "Hier Richtlinien anpassen...",
+                responsePlaceholder: "Die Antwort erscheint hier...",
+                directEdit: "Direkt bearbeitbar",
+                activeMode: "Aktiver Modus",
+                providerInfo: "Die App erkennt automatisch anhand des Keys, welchen Anbieter Sie nutzen:",
+                // Auth
+                username: "Benutzername",
+                password: "Passwort",
+                loginBtn: "Anmelden",
+                registerBtn: "Registrieren",
+                loading: "Lade...",
+                logout: "Abmelden",
+                importData: "Vorhandene Daten importieren?"
+            },
+            en: {
+                title: "SmartReply Assistant",
+                settings: "Settings",
+                workspace: "Workspace",
+                incoming: "Incoming Message",
+                paste: "Paste",
+                copy: "Copy",
+                copied: "Copied",
+                reset: "Reset",
+                confirmReset: "Clear all?",
+                demo: "Load Demo Text",
+                aiResponse: "AI Response",
+                fallback: "Fallback active",
+                generating: "generating...",
+                instrPlaceholder: 'E.g. "Offer 5% discount" or "Make it shorter"',
+                manage: "Management",
+                shops: "SHOPS",
+                newShop: "New Shop",
+                editShop: "Edit Shop",
+                save: "Save",
+                offlineBtn: "Enable Offline AI",
+                apiConfig: "AI & API Configuration",
+                stdPolicy: "Standard Policies",
+                policyLabel: "Policies & Tonality",
+                name: "Name",
+                apiKey: "API Key",
+                appReset: "Full App Reset",
+                confirmAppReset: "Really reset?",
+                genPolicyDefault: `GENERAL STANDARD POLICY:\n- Tone: Professional, polite.\n- Goal: Precise answer.\n- LENGTH: Short (2-4 paragraphs).`,
+                simGreeting: "Hello",
+                simClosing: "Best regards",
+                simBody: "thank you for your message. We have received your request.",
+                inputPlaceholder: "Paste the customer email here...",
+                policyPlaceholder: "Adjust policies here...",
+                responsePlaceholder: "The response text will appear here...",
+                directEdit: "Directly editable",
+                activeMode: "Active Mode",
+                providerInfo: "The app automatically detects the provider based on your key:",
+                // Auth
+                username: "Username",
+                password: "Password",
+                loginBtn: "Login",
+                registerBtn: "Register",
+                loading: "Loading...",
+                logout: "Logout",
+                importData: "Import existing data?"
+            },
+            it: {
+                title: "Assistente SmartReply",
+                settings: "Impostazioni",
+                workspace: "Workspace",
+                incoming: "Messaggio in arrivo",
+                paste: "Incolla",
+                copy: "Copia",
+                copied: "Copiato",
+                reset: "Reset",
+                confirmReset: "Cancellare tutto?",
+                demo: "Carica testo demo",
+                aiResponse: "Risposta IA",
+                fallback: "Fallback attivo",
+                generating: "genera...",
+                instrPlaceholder: 'Es. "Offri 5% sconto" o "Falla più breve"',
+                manage: "Gestione",
+                shops: "NEGOZI",
+                newShop: "Nuovo Negozio",
+                editShop: "Modifica Negozio",
+                save: "Salva",
+                offlineBtn: "Attiva IA Offline",
+                apiConfig: "Configurazione IA & API",
+                stdPolicy: "Direttive Standard",
+                policyLabel: "Direttive & Tonalità",
+                name: "Nome",
+                apiKey: "Chiave API",
+                appReset: "Reset Completo App",
+                confirmAppReset: "Resettare davvero?",
+                genPolicyDefault: `DIRETTIVA STANDARD GENERALE:\n- Tono: Professionale, gentile.\n- Obiettivo: Risposta precisa.\n- LUNGHEZZA: Breve (2-4 paragrafi).`,
+                simGreeting: "Buongiorno",
+                simClosing: "Cordiali saluti",
+                simBody: "grazie per il tuo messaggio. Abbiamo ricevuto la tua richiesta.",
+                inputPlaceholder: "Incolla qui l'email del cliente...",
+                policyPlaceholder: "Modifica le direttive qui...",
+                responsePlaceholder: "La risposta apparirà qui...",
+                directEdit: "Modificabile direttamente",
+                activeMode: "Modalità Attiva",
+                providerInfo: "L'app rileva automaticamente il provider in base alla chiave:",
+                // Auth
+                username: "Nome utente",
+                password: "Password",
+                loginBtn: "Accedi",
+                registerBtn: "Registrati",
+                loading: "Caricamento...",
+                logout: "Disconnettersi",
+                importData: "Importare dati esistenti?"
+            },
+            es: {
+                title: "Asistente SmartReply",
+                settings: "Ajustes",
+                workspace: "Espacio de trabajo",
+                incoming: "Mensaje entrante",
+                paste: "Pegar",
+                copy: "Copiar",
+                copied: "Copiado",
+                reset: "Reset",
+                confirmReset: "¿Borrar todo?",
+                demo: "Cargar texto demo",
+                aiResponse: "Respuesta IA",
+                fallback: "Fallback activo",
+                generating: "generando...",
+                instrPlaceholder: 'Ej. "Ofrece 5% descuento" o "Más breve"',
+                manage: "Gestión",
+                shops: "TIENDAS",
+                newShop: "Nueva Tienda",
+                editShop: "Editar Tienda",
+                save: "Guardar",
+                offlineBtn: "Activar IA Offline",
+                apiConfig: "Configuración IA y API",
+                stdPolicy: "Políticas Estándar",
+                policyLabel: "Políticas y Tonalidad",
+                name: "Nombre",
+                apiKey: "Clave API",
+                appReset: "Reset Completo App",
+                confirmAppReset: "¿Resetear realmente?",
+                genPolicyDefault: `POLÍTICA ESTÁNDAR GENERAL:\n- Tono: Profesional, amable.\n- Objetivo: Respuesta precisa.\n- LONGITUD: Corta (2-4 párrafos).`,
+                simGreeting: "Hola",
+                simClosing: "Saludos cordiales",
+                simBody: "gracias por su mensaje. Hemos recibido su solicitud.",
+                inputPlaceholder: "Pegue el correo del cliente aquí...",
+                policyPlaceholder: "Ajustar políticas aquí...",
+                responsePlaceholder: "La respuesta aparecerá aquí...",
+                directEdit: "Editable directamente",
+                activeMode: "Modo Activo",
+                providerInfo: "La aplicación detecta automáticamente el proveedor según su clave:",
+                // Auth
+                username: "Usuario",
+                password: "Password",
+                loginBtn: "Acceder",
+                registerBtn: "Registrarse",
+                loading: "Cargando...",
+                logout: "Cerrar sesión",
+                importData: "¿Importar datos existentes?"
+            },
+            fr: {
+                title: "Assistant SmartReply",
+                settings: "Paramètres",
+                workspace: "Espace de travail",
+                incoming: "Message entrant",
+                paste: "Coller",
+                copy: "Copier",
+                copied: "Copié",
+                reset: "Réinitialiser",
+                confirmReset: "Tout effacer ?",
+                demo: "Charger texte démo",
+                aiResponse: "Réponse IA",
+                fallback: "Fallback actif",
+                generating: "génère...",
+                instrPlaceholder: 'Ex. "Offre 5% remise" ou "Plus court"',
+                manage: "Gestion",
+                shops: "BOUTIQUES",
+                newShop: "Nouvelle Boutique",
+                editShop: "Modifier Boutique",
+                save: "Enregistrer",
+                offlineBtn: "Activer IA Hors-ligne",
+                apiConfig: "Config IA & API",
+                stdPolicy: "Politiques Standard",
+                policyLabel: "Politiques & Tonalité",
+                name: "Nom",
+                apiKey: "Clé API",
+                appReset: "Reset Complet App",
+                confirmAppReset: "Vraiment réinitialiser ?",
+                genPolicyDefault: `POLITIQUE STANDARD GÉNÉRALE :\n- Ton : Professionnel, poli.\n- Objectif : Réponse précise.\n- LONGUEUR : Court (2-4 paragraphes).`,
+                simGreeting: "Bonjour",
+                simClosing: "Cordialement",
+                simBody: "merci pour votre message. Nous avons bien reçu votre demande.",
+                inputPlaceholder: "Collez l'e-mail du client ici...",
+                policyPlaceholder: "Ajustez les politiques ici...",
+                responsePlaceholder: "La réponse apparaîtra ici...",
+                directEdit: "Modifiable directement",
+                activeMode: "Mode Actif",
+                providerInfo: "L'application détecte automatiquement le fournisseur via la clé :",
+                // Auth
+                username: "Nom d'utilisateur",
+                password: "Mot de passe",
+                loginBtn: "Connexion",
+                registerBtn: "S'inscrire",
+                loading: "Chargement...",
+                logout: "Déconnexion",
+                importData: "Importer les données existantes ?"
+            },
+            nl: {
+                title: "SmartReply Assistent",
+                settings: "Instellingen",
+                workspace: "Werkruimte",
+                incoming: "Inkomend bericht",
+                paste: "Plakken",
+                copy: "Kopiëren",
+                copied: "Gekopieerd",
+                reset: "Reset",
+                confirmReset: "Alles wissen?",
+                demo: "Laad demotekst",
+                aiResponse: "AI Antwoord",
+                fallback: "Fallback actief",
+                generating: "genereert...",
+                instrPlaceholder: 'Bijv. "Bied 5% korting" of "Maak het korter"',
+                manage: "Beheer",
+                shops: "WINKELS",
+                newShop: "Nieuwe Winkel",
+                editShop: "Winkel bewerken",
+                save: "Opslaan",
+                offlineBtn: "Offline AI activeren",
+                apiConfig: "AI & API Configuratie",
+                stdPolicy: "Standaardbeleid",
+                policyLabel: "Beleid & Toon",
+                name: "Naam",
+                apiKey: "API Sleutel",
+                appReset: "Volledige App Reset",
+                confirmAppReset: "Echt resetten?",
+                genPolicyDefault: `ALGEMENE STANDAARD BELEID:\n- Toon: Professioneel, beleefd.\n- Doel: Precies antwoord.\n- LENGTE: Kort (2-4 paragrafen).`,
+                simGreeting: "Hallo",
+                simClosing: "Met vriendelijke groet",
+                simBody: "bedankt voor uw bericht. We hebben uw aanvraag ontvangen.",
+                inputPlaceholder: "Plak hier de e-mail van de klant...",
+                policyPlaceholder: "Pas beleid hier aan...",
+                responsePlaceholder: "Het antwoord verschijnt hier...",
+                directEdit: "Direct bewerkbaar",
+                activeMode: "Actieve Modus",
+                providerInfo: "De app detecteert automatisch de provider op basis van uw sleutel:",
+                // Auth
+                username: "Gebruikersnaam",
+                password: "Wachtwoord",
+                loginBtn: "Inloggen",
+                registerBtn: "Registreren",
+                loading: "Laden...",
+                logout: "Uitloggen",
+                importData: "Bestaande gegevens importeren?"
+            }
+        };
 
         const GENERIC_ID = 'general';
-        const GENERIC_POLICY_TEXT = `ALLGEMEINE STANDARD-RICHTLINIE:
-- Tonalität: Professionell, höflich und lösungsorientiert.
-- Anrede: "Sie" (Standard), es sei denn der Kunde duzt offensichtlich.
-- Ziel: Beantworte die Anfrage direkt und präzise.
-- LÄNGE: Halte dich kurz. Maximal 2-4 Absätze.
-- INHALT: Gib allgemeine Informationen, keine spezifischen Details erfinden.`;
 
         // SECURITY: DEFAULT KEY REMOVED FOR HOSTING
         const DEFAULT_TEST_KEY = '';
@@ -195,25 +476,284 @@ TONALITY:
             }
         };
 
+        // --- Account & Security Managers ---
+        class CryptoManager {
+            constructor() {
+                this.algo = { name: 'AES-GCM', length: 256 };
+            }
+
+            async deriveKey(password, salt) {
+                const enc = new TextEncoder();
+                const keyMaterial = await window.crypto.subtle.importKey(
+                    "raw", enc.encode(password), { name: "PBKDF2" }, false, ["deriveKey"]
+                );
+
+                return window.crypto.subtle.deriveKey(
+                    {
+                        name: "PBKDF2",
+                        salt: salt,
+                        iterations: 100000,
+                        hash: "SHA-256"
+                    },
+                    keyMaterial,
+                    this.algo,
+                    false,
+                    ["encrypt", "decrypt"]
+                );
+            }
+
+            async encrypt(data, password) {
+                const salt = window.crypto.getRandomValues(new Uint8Array(16));
+                const iv = window.crypto.getRandomValues(new Uint8Array(12));
+                const key = await this.deriveKey(password, salt);
+                const enc = new TextEncoder();
+
+                const encrypted = await window.crypto.subtle.encrypt(
+                    { name: "AES-GCM", iv: iv }, key, enc.encode(JSON.stringify(data))
+                );
+
+                // Convert buffers to base64 for storage
+                return {
+                    salt: btoa(String.fromCharCode(...salt)),
+                    iv: btoa(String.fromCharCode(...iv)),
+                    data: btoa(String.fromCharCode(...new Uint8Array(encrypted)))
+                };
+            }
+
+            async decrypt(encryptedObj, password) {
+                try {
+                    const salt = Uint8Array.from(atob(encryptedObj.salt), c => c.charCodeAt(0));
+                    const iv = Uint8Array.from(atob(encryptedObj.iv), c => c.charCodeAt(0));
+                    const data = Uint8Array.from(atob(encryptedObj.data), c => c.charCodeAt(0));
+
+                    const key = await this.deriveKey(password, salt);
+
+                    const decrypted = await window.crypto.subtle.decrypt(
+                        { name: "AES-GCM", iv: iv }, key, data
+                    );
+
+                    const dec = new TextDecoder();
+                    return JSON.parse(dec.decode(decrypted));
+                } catch (e) {
+                    console.error("Decryption failed:", e);
+                    throw new Error("Falsches Passwort oder beschädigte Daten.");
+                }
+            }
+        }
+
+        const cryptoManager = new CryptoManager();
+
+        // --- Auth Component ---
+        const AuthScreen = ({ onLogin, language, setLanguage }) => {
+            const [mode, setMode] = useState('login'); // login, register, reset
+            const [username, setUsername] = useState('');
+            const [password, setPassword] = useState('');
+            const [error, setError] = useState('');
+            const [isLoading, setIsLoading] = useState(false);
+
+            const tAuth = TRANSLATIONS[language];
+
+            const handleAuth = async () => {
+                setError('');
+                setIsLoading(true);
+
+                // Simple artificial delay for UX and to prevent brute-force timing attacks (conceptually)
+                await new Promise(r => setTimeout(r, 600));
+
+                try {
+                    const storageKey = `user_vault_${username}`;
+                    const existingUser = localStorage.getItem(storageKey);
+
+                    if (mode === 'login') {
+                        if (!existingUser) throw new Error("Benutzer nicht gefunden.");
+                        const vault = JSON.parse(existingUser);
+                        const data = await cryptoManager.decrypt(vault, password);
+                        onLogin(username, password, data);
+                    } else if (mode === 'register') {
+                        if (existingUser) throw new Error("Benutzername existiert bereits.");
+                        // Check for migration data (if first user)
+                        let initialData = {
+                            companies: DEFAULT_COMPANIES,
+                            apiKey: DEFAULT_TEST_KEY,
+                            genericPolicy: tAuth.genPolicyDefault
+                        };
+
+                        // Check if we have legacy plain-text data to import
+                        const legacyComps = localStorage.getItem('smart_reply_companies');
+                        if (legacyComps) {
+                            if (confirm("Vorhandene Daten gefunden. Importieren?")) {
+                                initialData.companies = JSON.parse(legacyComps);
+                                initialData.apiKey = localStorage.getItem('smart_reply_api_key') || '';
+                                initialData.genericPolicy = localStorage.getItem('smart_reply_generic_policy') || tAuth.genPolicyDefault;
+                            }
+                        }
+
+                        const encrypted = await cryptoManager.encrypt(initialData, password);
+                        localStorage.setItem(storageKey, JSON.stringify(encrypted));
+                        onLogin(username, password, initialData);
+                    }
+                } catch (e) {
+                    setError(e.message);
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            return (
+                <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4">
+                    <div className="w-full max-w-md bg-white rounded-2xl shadow-xl -mt-20 overflow-hidden">
+                        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-8 text-center text-white">
+                            <div className="bg-white/20 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                                <Zap className="w-10 h-10 text-white" />
+                            </div>
+                            <h1 className="text-2xl font-bold">{tAuth.title}</h1>
+                            <p className="text-blue-100 text-sm mt-2">Sichere, verschlüsselte lokale KI</p>
+                        </div>
+
+                        <div className="p-8">
+                            {error && (
+                                <div className="mb-4 p-3 bg-red-50 text-red-700 rounded-lg text-sm flex items-center gap-2">
+                                    <AlertTriangle className="w-4 h-4" /> {error}
+                                </div>
+                            )}
+
+                            <div className="space-y-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-700 mb-1">{tAuth.username || "Benutzername"}</label>
+                                    <input
+                                        type="text"
+                                        value={username}
+                                        onChange={e => setUsername(e.target.value)}
+                                        className="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                                        placeholder="User123"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-slate-700 mb-1">{tAuth.password || "Passwort"}</label>
+                                    <input
+                                        type="password"
+                                        value={password}
+                                        onChange={e => setPassword(e.target.value)}
+                                        className="w-full border border-slate-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
+                                        placeholder="••••••••"
+                                        onKeyDown={e => e.key === 'Enter' && handleAuth()}
+                                    />
+                                </div>
+
+                                <button
+                                    onClick={handleAuth}
+                                    disabled={!username || !password || isLoading}
+                                    className="w-full bg-blue-600 text-white py-2.5 rounded-lg font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all disabled:opacity-50 disabled:shadow-none translate-y-0 active:translate-y-0.5"
+                                >
+                                    {isLoading ? tAuth.loading || "Lade..." : (mode === 'login' ? tAuth.loginBtn || "Anmelden" : tAuth.registerBtn || "Registrieren")}
+                                </button>
+
+                                <div className="relative py-2">
+                                    <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-slate-200"></div></div>
+                                    <div className="relative flex justify-center text-xs uppercase"><span className="bg-white px-2 text-slate-400">oder</span></div>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-3">
+                                    <button onClick={() => alert("Demo: Google Login")} className="flex items-center justify-center gap-2 border border-slate-200 p-2 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium text-slate-600">
+                                        <svg className="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="M21.35 11.1h-9.17v2.73h6.51c-.33 3.81-3.5 5.44-5.3 5.44C10.13 19.27 7.22 16.22 7 12c.31-4.77 4.2-7.1 6.39-7.1c1.61 0 3.03.61 4.13 1.68l2.63-2.63A11.37 11.37 0 0 0 13.39 1c-6.21 0-10.88 4.77-10.66 11c.21 5.92 5.23 10.19 9.66 10.19c11.13 0 10.8-11.1 10.8-11.1H21.35z" /></svg> Google
+                                    </button>
+                                    <button onClick={() => alert("Demo: Microsoft Login")} className="flex items-center justify-center gap-2 border border-slate-200 p-2 rounded-lg hover:bg-slate-50 transition-colors text-sm font-medium text-slate-600">
+                                        <svg className="w-4 h-4" viewBox="0 0 24 24"><path fill="currentColor" d="M11.4 24H0V12.6h11.4V24zM24 24H12.6V12.6H24V24zM11.4 11.4H0V0h11.4v11.4zM24 11.4H12.6V0H24v11.4z" /></svg> Microsoft
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-slate-50 p-4 text-center text-sm text-slate-500 border-t border-slate-100">
+                            {mode === 'login' ? "Kein Konto? " : "Bereits registriert? "}
+                            <button onClick={() => setMode(mode === 'login' ? 'register' : 'login')} className="text-blue-600 font-bold hover:underline">
+                                {mode === 'login' ? "Jetzt registrieren" : "Anmelden"}
+                            </button>
+                        </div>
+
+                        <div className="p-4 border-t border-slate-200 bg-white flex justify-center">
+                            <select
+                                value={language}
+                                onChange={(e) => setLanguage(e.target.value)}
+                                className="text-sm bg-transparent border-none focus:ring-0 text-slate-400 cursor-pointer"
+                            >
+                                <option value="de">Deutsch</option>
+                                <option value="en">English</option>
+                                <option value="it">Italiano</option>
+                                <option value="es">Español</option>
+                                <option value="fr">Français</option>
+                                <option value="nl">Nederlands</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
         // --- Main Component ---
         function App() {
-            // --- Persistent State ---
-            const [companies, setCompanies] = useState(() => {
-                const saved = localStorage.getItem('smart_reply_companies');
-                return saved ? JSON.parse(saved) : DEFAULT_COMPANIES;
-            });
+            // --- Global Auth State ---
+            const [currentUser, setCurrentUser] = useState(null); // { username, password (for encryption) }
+            const [language, setLanguage] = useState(() => localStorage.getItem('smart_reply_language') || 'de');
 
-            const [selectedCompanyId, setSelectedCompanyId] = useState(() => {
-                return localStorage.getItem('smart_reply_last_company') || GENERIC_ID;
-            });
+            // --- Persistent State (loaded from encrypted vault or defaults) ---
+            const [companies, setCompanies] = useState(DEFAULT_COMPANIES);
+            const [selectedCompanyId, setSelectedCompanyId] = useState(GENERIC_ID);
+            const [apiKey, setApiKey] = useState(DEFAULT_TEST_KEY);
+            const [genericPolicy, setGenericPolicy] = useState('');
 
-            const [apiKey, setApiKey] = useState(() => {
-                return localStorage.getItem('smart_reply_api_key') || DEFAULT_TEST_KEY;
-            });
+            // --- Effects ---
+            const t = TRANSLATIONS[language];
 
-            const [genericPolicy, setGenericPolicy] = useState(() => {
-                return localStorage.getItem('smart_reply_generic_policy') || GENERIC_POLICY_TEXT;
-            });
+            // Initialize default generic policy if empty
+            useEffect(() => {
+                if (!genericPolicy) setGenericPolicy(t.genPolicyDefault);
+            }, [language]);
+
+            // Save changes to ENCRYPTED storage whenever relevant state changes
+            useEffect(() => {
+                if (!currentUser) return;
+
+                const saveData = async () => {
+                    const dataToEncrypt = {
+                        companies,
+                        apiKey,
+                        genericPolicy
+                    };
+                    try {
+                        const encrypted = await cryptoManager.encrypt(dataToEncrypt, currentUser.password);
+                        localStorage.setItem(`user_vault_${currentUser.username}`, JSON.stringify(encrypted));
+                        console.log("Vault saved encrypted.");
+                    } catch (e) {
+                        console.error("Save failed", e);
+                    }
+                };
+
+                // Debounce save to avoid thrashing crypto
+                const timeoutId = setTimeout(saveData, 1000);
+                return () => clearTimeout(timeoutId);
+
+            }, [companies, apiKey, genericPolicy, currentUser]);
+
+            // --- Handlers ---
+            const handleLogin = (username, password, decryptedData) => {
+                setCompanies(decryptedData.companies || DEFAULT_COMPANIES);
+                setApiKey(decryptedData.apiKey || '');
+                setGenericPolicy(decryptedData.genericPolicy || t.genPolicyDefault);
+
+                setCurrentUser({ username, password });
+            };
+
+            const handleLogout = () => {
+                setCurrentUser(null);
+                setCompanies(DEFAULT_COMPANIES);
+                setApiKey('');
+            };
+
+            if (!currentUser) {
+                return <AuthScreen onLogin={handleLogin} language={language} setLanguage={setLanguage} />;
+            }
+
+            // ... (Rest of App logic needs to remove the old localStorage calls)
 
             // --- Runtime State ---
             const [activeTab, setActiveTab] = useState('workspace');
@@ -256,10 +796,9 @@ TONALITY:
             const activeProvider = getProvider(apiKey);
 
             // --- Effects ---
-            useEffect(() => { localStorage.setItem('smart_reply_companies', JSON.stringify(companies)); }, [companies]);
             useEffect(() => { localStorage.setItem('smart_reply_last_company', selectedCompanyId); }, [selectedCompanyId]);
-            useEffect(() => { localStorage.setItem('smart_reply_api_key', apiKey); setEditApiKey(apiKey); }, [apiKey]);
-            useEffect(() => { localStorage.setItem('smart_reply_generic_policy', genericPolicy); }, [genericPolicy]);
+            useEffect(() => { setEditApiKey(apiKey); }, [apiKey]);
+            useEffect(() => { localStorage.setItem('smart_reply_language', language); }, [language]);
 
             useEffect(() => {
                 if (selectedCompanyId === GENERIC_ID) {
@@ -400,14 +939,7 @@ ${instruction ? 'Zusatz-Anweisung: ' + instruction : ''}`;
                 await new Promise(r => setTimeout(r, 800));
 
                 if (selectedCompanyId === GENERIC_ID) {
-                    setGeneratedResponse(`Sehr geehrte Damen und Herren,
-
-vielen Dank für Ihre Nachricht. Wir haben Ihr Anliegen erhalten und werden es schnellstmöglich prüfen.
-
-Da es sich um eine allgemeine Anfrage handelt, melden wir uns in Kürze mit weiteren Informationen bei Ihnen. Sollten Sie in der Zwischenzeit weitere Fragen haben, stehen wir Ihnen gerne zur Verfügung.
-
-Mit freundlichen Grüßen,
-Ihr Support-Team`);
+                    setGeneratedResponse(`${t.simGreeting} ${incomingMail.includes('Mustermann') ? 'Herr Mustermann' : 'Kunde'},\n\n${t.simBody}\n\n${t.simClosing},\nIhr Support-Team`);
                     return;
                 }
 
@@ -423,11 +955,11 @@ Ihr Support-Team`);
                     body += " Basierend auf Ihren Angaben werden wir den Vorgang prüfen und uns zeitnah mit einer Lösung bei Ihnen melden.";
                 }
 
-                setGeneratedResponse(`${isDu ? 'Hallo' : 'Guten Tag'} ${customerName},
+                setGeneratedResponse(`${isDu ? t.simGreeting : t.simGreeting} ${customerName},
 
 ${body}
 
-${isDu ? 'Viele Grüße' : 'Mit freundlichen Grüßen'},
+${isDu ? t.simClosing : t.simClosing},
 Ihr Support-Team`);
             };
 
@@ -559,7 +1091,7 @@ Max Mustermann`;
                             </div>
                             <div>
                                 <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
-                                    SmartReply
+                                    {t.title}
                                 </h1>
                                 <div className="mt-1">
                                     {renderProviderBadge()}
@@ -575,8 +1107,8 @@ Max Mustermann`;
                                         onChange={(e) => setSelectedCompanyId(e.target.value)}
                                         className="appearance-none pl-9 bg-slate-100 border-none rounded-md pr-8 py-2 text-sm font-medium focus:ring-2 focus:ring-blue-500 cursor-pointer w-48 truncate"
                                     >
-                                        <option value={GENERIC_ID}>Allgemein (Standard)</option>
-                                        <optgroup label="Meine Shops">
+                                        <option value={GENERIC_ID}>{t.stdPolicy}</option>
+                                        <optgroup label={t.shops}>
                                             {companies.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
                                         </optgroup>
                                     </select>
@@ -584,12 +1116,28 @@ Max Mustermann`;
                                 </div>
                             )}
 
+                            <div className="relative">
+                                <select
+                                    value={language}
+                                    onChange={(e) => setLanguage(e.target.value)}
+                                    className="appearance-none pl-9 bg-slate-100 border-none rounded-md pr-8 py-2 text-sm font-medium focus:ring-2 focus:ring-blue-500 cursor-pointer w-32"
+                                >
+                                    <option value="de">Deutsch 🇩🇪</option>
+                                    <option value="en">English 🇺🇸</option>
+                                    <option value="it">Italiano 🇮🇹</option>
+                                    <option value="es">Español 🇪🇸</option>
+                                    <option value="fr">Français 🇫🇷</option>
+                                    <option value="nl">Nederlands 🇳🇱</option>
+                                </select>
+                                <Globe className="w-4 h-4 text-slate-500 absolute left-3 top-2.5 pointer-events-none" />
+                            </div>
+
                             <button
                                 onClick={() => setActiveTab('settings')}
                                 className={`px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2 transition-colors ${activeTab === 'settings' ? 'bg-blue-50 text-blue-700' : 'text-slate-500 hover:bg-slate-100'}`}
                             >
                                 <Settings className="w-4 h-4" />
-                                <span className="hidden sm:inline">Einstellungen</span>
+                                <span className="hidden sm:inline">{t.settings}</span>
                             </button>
                         </div>
                     </header>
@@ -613,7 +1161,7 @@ Max Mustermann`;
                                         <div className="bg-slate-50 px-4 py-3 border-b border-slate-200 flex justify-between items-center min-h-[50px]">
                                             <div className="flex items-center gap-2 text-slate-700 font-medium">
                                                 <Mail className="w-4 h-4 text-blue-500" />
-                                                <h3>Eingehende Nachricht</h3>
+                                                <h3>{t.incoming}</h3>
                                             </div>
                                             <div className="flex items-center gap-1">
                                                 <button
@@ -622,7 +1170,7 @@ Max Mustermann`;
                                                     title="Aus Zwischenablage einfügen"
                                                 >
                                                     <Clipboard className="w-4 h-4" />
-                                                    <span className="hidden xl:inline">Einfügen</span>
+                                                    <span className="hidden xl:inline">{t.paste}</span>
                                                 </button>
 
                                                 {incomingMail && (
@@ -645,12 +1193,12 @@ Max Mustermann`;
                                                     {confirmReset ? (
                                                         <>
                                                             <AlertTriangle className="w-3.5 h-3.5" />
-                                                            Wirklich löschen?
+                                                            {t.confirmReset}
                                                         </>
                                                     ) : (
                                                         <>
                                                             <RotateCcw className="w-3.5 h-3.5" />
-                                                            <span className="hidden xl:inline">Reset</span>
+                                                            <span className="hidden xl:inline">{t.reset}</span>
                                                         </>
                                                     )}
                                                 </button>
@@ -664,8 +1212,8 @@ Max Mustermann`;
                                         )}
 
                                         <textarea
-                                            className="flex-1 p-5 resize-none focus:outline-none text-slate-600 text-base leading-relaxed"
-                                            placeholder="Fügen Sie hier die E-Mail des Kunden ein..."
+                                            className="flex-1 p-5 resize-y focus:outline-none text-slate-600 text-base leading-relaxed"
+                                            placeholder={t.inputPlaceholder}
                                             value={incomingMail}
                                             onChange={(e) => setIncomingMail(e.target.value)}
                                         />
@@ -673,7 +1221,7 @@ Max Mustermann`;
                                         {!incomingMail && (
                                             <div className="absolute bottom-4 right-4">
                                                 <button onClick={() => { setIncomingMail(DUMMY_CLIPBOARD_CONTENT); setTimeout(() => document.getElementById('gen-btn')?.click(), 100); }} className="text-xs bg-slate-50 text-slate-400 border border-slate-200 px-2 py-1 rounded hover:bg-slate-100 transition-colors">
-                                                    Demo Text laden
+                                                    {t.demo}
                                                 </button>
                                             </div>
                                         )}
@@ -684,13 +1232,13 @@ Max Mustermann`;
                                             <div className="flex items-center gap-2 text-slate-700 font-medium">
                                                 <FileText className="w-4 h-4 text-emerald-500" />
                                                 <h3 className="truncate text-sm">
-                                                    {selectedCompanyId === GENERIC_ID ? 'Standard-Richtlinien' : companies.find(c => c.id === selectedCompanyId)?.name}
+                                                    {selectedCompanyId === GENERIC_ID ? t.stdPolicy : companies.find(c => c.id === selectedCompanyId)?.name}
                                                 </h3>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 <span className="text-xs text-slate-400 flex items-center gap-1">
                                                     <FilePenLine className="w-3 h-3" />
-                                                    Direkt bearbeitbar
+                                                    {t.directEdit}
                                                 </span>
                                                 <div className="h-3 w-px bg-slate-200"></div>
                                                 <button
@@ -703,11 +1251,11 @@ Max Mustermann`;
                                             </div>
                                         </div>
                                         <textarea
-                                            className="flex-1 w-full h-full p-4 bg-white resize-none outline-none font-mono text-xs text-slate-600 hover:bg-white focus:bg-white transition-colors border-none"
+                                            className="flex-1 w-full h-full p-4 bg-white resize-y outline-none font-mono text-xs text-slate-600 hover:bg-white focus:bg-white transition-colors border-none"
                                             value={policyContent}
                                             onChange={(e) => handlePolicyChange(e.target.value)}
                                             spellCheck={false}
-                                            placeholder="Hier Richtlinien anpassen..."
+                                            placeholder={t.policyPlaceholder}
                                         />
                                     </section>
                                 </div>
@@ -717,12 +1265,12 @@ Max Mustermann`;
                                         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-3 border-b border-blue-100 flex justify-between items-center">
                                             <div className="flex items-center gap-2 text-blue-900 font-bold">
                                                 <Sparkles className="w-4 h-4 text-blue-600" />
-                                                <h3>KI-Antwort</h3>
+                                                <h3>{t.aiResponse}</h3>
                                             </div>
                                             <div className="flex items-center gap-2">
                                                 {usedFallback && (
                                                     <span className="text-[10px] bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full flex items-center gap-1">
-                                                        <Cpu className="w-3 h-3" /> Fallback aktiv
+                                                        <Cpu className="w-3 h-3" /> {t.fallback}
                                                     </span>
                                                 )}
                                                 {renderProviderBadge()}
@@ -741,8 +1289,8 @@ Max Mustermann`;
                                                 </div>
                                             )}
                                             <textarea
-                                                className={`flex-1 w-full p-6 resize-none focus:outline-none text-slate-700 leading-relaxed text-base transition-colors ${manualEditMode ? 'bg-white' : 'bg-slate-50/30'}`}
-                                                placeholder="Die Antwort erscheint hier..."
+                                                className={`flex-1 w-full p-6 resize-y focus:outline-none text-slate-700 leading-relaxed text-base transition-colors ${manualEditMode ? 'bg-white' : 'bg-slate-50/30'}`}
+                                                placeholder={t.responsePlaceholder}
                                                 value={generatedResponse}
                                                 onChange={(e) => { setGeneratedResponse(e.target.value); setManualEditMode(true); }}
                                             />
@@ -751,7 +1299,7 @@ Max Mustermann`;
                                                 <div className="flex gap-2">
                                                     <input
                                                         type="text"
-                                                        placeholder='Z.B. "Biete 5% Rabatt an" oder "Fasse dich kürzer"'
+                                                        placeholder={t.instrPlaceholder}
                                                         className="flex-1 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none shadow-sm"
                                                         value={customInstruction}
                                                         onChange={(e) => setCustomInstruction(e.target.value)}
@@ -776,7 +1324,7 @@ Max Mustermann`;
                                             {generatedResponse && (
                                                 <button onClick={handleCopy} className={`flex-1 flex items-center justify-center gap-2 rounded-lg font-bold transition-all shadow-md ${copySuccess ? 'bg-emerald-600 text-white' : 'bg-blue-600 text-white hover:bg-blue-700'}`}>
                                                     {copySuccess ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                                                    {copySuccess ? 'Kopiert' : 'Kopieren'}
+                                                    {copySuccess ? t.copied : t.copy}
                                                 </button>
                                             )}
                                         </div>
@@ -812,7 +1360,7 @@ Max Mustermann`;
 
                                     <div className="p-2 bg-slate-50">
                                         <div className="flex justify-between items-center px-2 py-2">
-                                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Shops</span>
+                                            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{t.shops}</span>
                                             <button onClick={startAdding} className="bg-white border border-slate-200 p-1 rounded hover:bg-blue-50 hover:border-blue-200 text-blue-600"><Plus className="w-3 h-3" /></button>
                                         </div>
                                         <div className="space-y-1 overflow-y-auto max-h-[400px]">
@@ -829,15 +1377,24 @@ Max Mustermann`;
                                         </div>
                                     </div>
 
-                                    <div className="mt-auto p-4 border-t border-slate-200">
+                                    <div className="mt-auto p-4 border-t border-slate-200 flex flex-col gap-2">
+                                        <div className="text-xs text-slate-400 px-1 truncate flex justify-between items-center">
+                                            <span>User: <span className="font-medium text-slate-600">{currentUser?.username}</span></span>
+                                        </div>
+                                        <button
+                                            onClick={handleLogout}
+                                            className="w-full py-2 px-3 text-xs rounded border border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors flex items-center justify-center gap-2"
+                                        >
+                                            <LogOut className="w-3 h-3" /> {t.logout}
+                                        </button>
                                         <button
                                             onClick={handleFactoryReset}
                                             className={`w-full py-2 px-3 text-xs rounded border transition-colors flex items-center justify-center gap-2 ${confirmReset ? 'bg-red-600 text-white border-red-700' : 'text-red-500 hover:bg-red-50 border-transparent hover:border-red-100'}`}
                                         >
                                             {confirmReset ? (
-                                                <>Wirklich zurücksetzen?</>
+                                                <>{t.confirmAppReset}</>
                                             ) : (
-                                                <><RotateCcw className="w-3 h-3" /> App komplett Reset</>
+                                                <><RotateCcw className="w-3 h-3" /> {t.appReset}</>
                                             )}
                                         </button>
                                     </div>
@@ -849,10 +1406,10 @@ Max Mustermann`;
                                             <div className="border-b pb-4"><h2 className="text-lg font-bold">API Konfiguration</h2></div>
                                             <div className="bg-slate-50 p-4 rounded text-sm text-slate-600 border border-slate-200">
                                                 <div className="flex items-center gap-2 mb-2 font-bold">
-                                                    Aktiver Modus: {renderProviderBadge()}
+                                                    {t.activeMode}: {renderProviderBadge()}
                                                 </div>
                                                 <p className="text-xs text-slate-500 mb-1">
-                                                    Die App erkennt automatisch anhand des Keys, welchen Anbieter Sie nutzen:
+                                                    {t.providerInfo}
                                                 </p>
                                                 <ul className="list-disc list-inside text-xs space-y-1 ml-1">
                                                     <li><code>gsk_...</code> → <strong>Groq</strong> (Llama 3.3) - <em>Extrem schnell</em></li>
@@ -862,7 +1419,7 @@ Max Mustermann`;
                                                 </ul>
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium mb-1">API Key</label>
+                                                <label className="block text-sm font-medium mb-1">{t.apiKey}</label>
                                                 <input
                                                     type="password"
                                                     value={editApiKey}
@@ -872,43 +1429,43 @@ Max Mustermann`;
                                                 />
                                             </div>
                                             <div className="flex gap-2">
-                                                <button onClick={() => { setApiKey(editApiKey); alert('Gespeichert! Provider wird automatisch erkannt.'); }} className="bg-indigo-600 text-white px-4 py-2 rounded self-start flex items-center gap-2 hover:bg-indigo-700 transition-colors"><Save className="w-4 h-4" /> Speichern</button>
+                                                <button onClick={() => { setApiKey(editApiKey); alert(t.save + '!'); }} className="bg-indigo-600 text-white px-4 py-2 rounded self-start flex items-center gap-2 hover:bg-indigo-700 transition-colors"><Save className="w-4 h-4" /> {t.save}</button>
                                                 <button onClick={() => { setApiKey('webllm'); setEditApiKey('webllm'); }} className="bg-purple-600 text-white px-4 py-2 rounded self-start flex items-center gap-2 hover:bg-purple-700 transition-colors"><Cpu className="w-4 h-4" /> Offline-KI aktivieren</button>
                                             </div>
                                         </div>
                                     ) : editingId === 'GENERIC_CONFIG' ? (
                                         <div className="space-y-6 flex flex-col h-full">
-                                            <div className="border-b pb-4"><h2 className="text-lg font-bold">Standard-Richtlinien anpassen</h2></div>
+                                            <div className="border-b pb-4"><h2 className="text-lg font-bold">{t.stdPolicy}</h2></div>
                                             <div className="bg-emerald-50 border border-emerald-100 p-4 rounded text-sm text-emerald-800">
-                                                Diese Richtlinien werden verwendet, wenn im Workspace "Allgemein (Standard)" ausgewählt ist.
+                                                {t.genPolicyDefault.split('\n')[0]}
                                             </div>
                                             <div className="flex-1 flex flex-col">
-                                                <label className="block text-sm font-medium mb-1">Default Policy Text</label>
-                                                <textarea value={editPolicy} onChange={e => setEditPolicy(e.target.value)} className="flex-1 w-full border p-3 rounded font-mono text-sm focus:ring-2 ring-emerald-500 outline-none resize-none" />
+                                                <label className="block text-sm font-medium mb-1">{t.stdPolicy}</label>
+                                                <textarea value={editPolicy} onChange={e => setEditPolicy(e.target.value)} className="flex-1 w-full border p-3 rounded font-mono text-sm focus:ring-2 ring-emerald-500 outline-none resize-y min-h-[300px]" />
                                             </div>
                                             <div className="pt-4 flex justify-end">
                                                 <button onClick={saveCompany} className="bg-emerald-600 text-white px-6 py-2 rounded font-medium shadow-sm hover:bg-emerald-700 transition-colors flex items-center gap-2">
-                                                    <Save className="w-4 h-4" /> Speichern
+                                                    <Save className="w-4 h-4" /> {t.save}
                                                 </button>
                                             </div>
                                         </div>
                                     ) : editingId ? (
                                         <div className="space-y-6 flex flex-col h-full">
                                             <div className="border-b pb-4 flex justify-between items-center">
-                                                <h2 className="text-lg font-bold">{editingId === 'NEW' ? 'Neuer Shop' : 'Shop bearbeiten'}</h2>
+                                                <h2 className="text-lg font-bold">{editingId === 'NEW' ? t.newShop : t.editShop}</h2>
                                                 {editingId !== 'NEW' && <button onClick={() => deleteCompany(editingId)} className="text-red-500 hover:bg-red-50 p-2 rounded"><Trash2 className="w-4 h-4" /></button>}
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium mb-1">Name</label>
+                                                <label className="block text-sm font-medium mb-1">{t.name}</label>
                                                 <input type="text" value={editName} onChange={e => setEditName(e.target.value)} className="w-full border p-2 rounded focus:ring-2 ring-blue-500 outline-none" placeholder="Shop Name" />
                                             </div>
                                             <div className="flex-1 flex flex-col">
-                                                <label className="block text-sm font-medium mb-1">Richtlinien & Tonalität</label>
-                                                <textarea value={editPolicy} onChange={e => setEditPolicy(e.target.value)} className="flex-1 w-full border p-3 rounded font-mono text-sm focus:ring-2 ring-blue-500 outline-none resize-none" placeholder="Regeln hier..." />
+                                                <label className="block text-sm font-medium mb-1">{t.policyLabel}</label>
+                                                <textarea value={editPolicy} onChange={e => setEditPolicy(e.target.value)} className="flex-1 w-full border p-3 rounded font-mono text-sm focus:ring-2 ring-blue-500 outline-none resize-y min-h-[300px]" placeholder="Regeln hier..." />
                                             </div>
                                             <div className="pt-4 flex justify-end">
                                                 <button onClick={saveCompany} className="bg-blue-600 text-white px-6 py-2 rounded font-medium shadow-sm hover:bg-blue-700 transition-colors flex items-center gap-2">
-                                                    <Save className="w-4 h-4" /> Speichern
+                                                    <Save className="w-4 h-4" /> {t.save}
                                                 </button>
                                             </div>
                                         </div>
